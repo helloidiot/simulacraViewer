@@ -7,23 +7,29 @@ void ofApp::setup(){
     ofSetFrameRate(24);
 
 //    face.init();
+    
     video.init();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    
 //    face.update();
+    
     video.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    
 //    face.draw();
-    video.draw(ofGetWidth() / 2, ofGetHeight() / 2, 720, 720);
+    
+    video.draw(ofGetWidth() / 2, ofGetHeight() / 2, 540, 540);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+    
 //    if (key == 'r'){
 //        face.reset();
 //        cout << "tracker reset" << endl;

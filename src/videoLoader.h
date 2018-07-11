@@ -17,8 +17,11 @@ public:
     int currentVid = 0;
     int loopCounter;
     int loopAmount = 4;
-    ofVideoPlayer videos[24];
+    int longLoop = 4;
+    int shortLoop = 3;
+    int loopThreshold = 250; 
     ofVideoPlayer singleVid;
+    ofVideoPlayer videos[24];
 
 };
 

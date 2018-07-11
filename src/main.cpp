@@ -41,9 +41,5 @@ int main( ){
     // print display info.
     cout<<numDisplays<<" display(s) detected."<<endl<<"Using display "<<whichDisplay<<" ("<<displayWidth<<"x"<<displayHeight<<")."<<endl;
     
-    // this kicks off the running of my app
-    // can be OF_WINDOW or OF_FULLSCREEN
-    // pass in width and height too:
-    
     ofRunApp(new ofApp());
 }

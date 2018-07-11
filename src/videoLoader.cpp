@@ -3,11 +3,13 @@
 //--------------------------------------------------------------
 void videoLoader::init(){
     
-    // Fill the array with GIFs
-//    for (int i = 0; i <= numVideos; i++){
-//        videos[i].load("movies/" + ofToString(i) + ".mp4");
-//        videos[i].play();
-//    }
+    // 3 empty frames....
+    for (int i = 0; i < numVideos; i++){
+        videos[i].load("movies/" + ofToString(currentVid) + ".mp4");
+        videos[i].setLoopState(OF_LOOP_NONE);
+        videos[i].play();
+    }
+    
     
     ofSetRectMode(OF_RECTMODE_CENTER);
     
@@ -21,28 +23,24 @@ void videoLoader::init(){
 //--------------------------------------------------------------
 void videoLoader::update(){
     
-//    for (int i = 0; i <= numVideos; i++){
-//        videos[currentVid].update();
-//    }
-    
-    if (singleVid.getTotalNumFrames() > 250){
-        loopAmount = 3;
+    if (singleVid.getTotalNumFrames() > loopThreshold){
+        loopAmount = shortLoop;
     }
-    else { loopAmount = 4; }
+    else { loopAmount = longLoop; }
     
     singleVid.update();
     
-    // Check for a loop and increment
+    // Check for a loop and increment loopCounter
     if (singleVid.getIsMovieDone()){
         
-        singleVid.setFrame(0); //stutter?
+        singleVid.setFrame(0); // causing stutter?
         loopCounter++;
         singleVid.play();
         
         ofLog() << "number of times video has looped: " << loopCounter << endl;
     }
     
-    // If loop > loopamount, move to next video
+    // If loops are complete, move to next video
     if (loopCounter > loopAmount){
         
         currentVid++;
@@ -57,8 +55,6 @@ void videoLoader::update(){
         
         
     }
-    
-    cout << loopCounter << endl;
     
 }
 
